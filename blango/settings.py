@@ -53,11 +53,13 @@ class Dev(Configuration):
       'crispy_bootstrap5',
       'debug_toolbar',
       'blog',
+      'blango_auth',
   ]
 
   CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
   CRISPY_TEMPLATE_PACK = "bootstrap5"
   INTERNAL_IPS = ["192.168.10.92"]
+  AUTH_USER_MODEL = "blango_auth.User"
 
   MIDDLEWARE = [
       'debug_toolbar.middleware.DebugToolbarMiddleware',
