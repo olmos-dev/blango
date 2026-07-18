@@ -38,6 +38,8 @@ class Dev(Configuration):
   CSRF_COOKIE_SAMESITE = 'None'
   SESSION_COOKIE_SAMESITE = 'None'
 
+ 
+
   # Application definition
 
   INSTALLED_APPS = [
@@ -49,13 +51,16 @@ class Dev(Configuration):
       'django.contrib.staticfiles',
       'crispy_forms',
       'crispy_bootstrap5',
+      'debug_toolbar',
       'blog',
   ]
 
   CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
   CRISPY_TEMPLATE_PACK = "bootstrap5"
+  INTERNAL_IPS = ["192.168.10.92"]
 
   MIDDLEWARE = [
+      'debug_toolbar.middleware.DebugToolbarMiddleware',
       'django.middleware.security.SecurityMiddleware',
       'django.contrib.sessions.middleware.SessionMiddleware',
       'django.middleware.common.CommonMiddleware',
