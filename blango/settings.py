@@ -60,6 +60,8 @@ class Dev(Configuration):
   CRISPY_TEMPLATE_PACK = "bootstrap5"
   INTERNAL_IPS = ["192.168.10.92"]
   AUTH_USER_MODEL = "blango_auth.User"
+  ACCOUNT_ACTIVATION_DAYS = 7
+  EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
   MIDDLEWARE = [
       'debug_toolbar.middleware.DebugToolbarMiddleware',
