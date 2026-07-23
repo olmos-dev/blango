@@ -1,0 +1,36 @@
+# Ignorar entorno virtual
+venv/
+.env/
+
+# Ignorar archivos de migraciones (solo los binarios, no los scripts iniciales si quieres conservarlos)
+*/migrations/__pycache__/
+*/migrations/*.pyc
+*/migrations/*.pyo
+*/migrations/*.log
+*/migrations/*.sqlite3
+
+# Si quieres ignorar TODAS las migraciones generadas automáticamente:
+*/migrations/
+
+# Ignorar archivos de caché de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar archivos temporales
+*.log
+*.pot
+*.py~
+*.swp
+*.swo
+
+# Ignorar base de datos local
+#db.sqlite3
+
+# Ignorar archivos estáticos generados
+staticfiles/
+media/
+
+# Ignorar configuraciones locales
+*.env
