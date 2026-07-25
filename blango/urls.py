@@ -23,6 +23,7 @@ import debug_toolbar
 import blango_auth.views
 from django_registration.backends.activation.views import RegistrationView
 from blango_auth.forms import BlangoRegistrationForm
+from rest_framework.authtoken import views
 #print(f"Time zone: {settings.TIME_ZONE}")
 
 urlpatterns = [
@@ -41,4 +42,6 @@ urlpatterns = [
     path("__debug__/", include(debug_toolbar.urls)),
     #path("api/v1/", include("blog.api_urls")),
     path("api/v1/", include("blog.api.urls")),
+    path("auth/", include("rest_framework.urls")),
+    path("token-auth/", views.obtain_auth_token)
 ]
