@@ -24,7 +24,19 @@ import blango_auth.views
 from django_registration.backends.activation.views import RegistrationView
 from blango_auth.forms import BlangoRegistrationForm
 from rest_framework.authtoken import views
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
 #print(f"Time zone: {settings.TIME_ZONE}")
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Blango API",
+        default_version="v1",
+        description="API for Blango Blog",
+    ),
+    public=True,
+)
 
 urlpatterns = [
     #path("accounts/", include("django.contrib.auth.urls")),
@@ -43,5 +55,7 @@ urlpatterns = [
     #path("api/v1/", include("blog.api_urls")),
     path("api/v1/", include("blog.api.urls")),
     path("auth/", include("rest_framework.urls")),
-    path("token-auth/", views.obtain_auth_token)
+    path("token-auth/", views.obtain_auth_token),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0)),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0)),
 ]

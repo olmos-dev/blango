@@ -54,6 +54,7 @@ class Dev(Configuration):
       'rest_framework',
       'rest_framework.authtoken',
       'debug_toolbar',
+      'drf_yasg',
       'blog',
       'blango_auth',
   ]
@@ -182,6 +183,13 @@ class Dev(Configuration):
         "handlers": ["console"],
         "level": "DEBUG",
     },
+  }
+
+  SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+        "Token": {"type": "apiKey", "name": "Authorization", "in": "header"},
+        "Basic": {"type": "basic"},
+    }
   }
 
 class Prod(Dev):
