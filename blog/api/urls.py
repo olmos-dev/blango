@@ -10,6 +10,7 @@ router.register("tags", TagViewSet)
 
 urlpatterns = [
     path("users/<str:email>", UserDetail.as_view(), name="api_user_detail"),
+    path("posts/by-time/<str:period_name>/",PostViewSet.as_view({"get": "list"}),name="posts-by-time",),
     path("", include(router.urls)),
 ]
 
